@@ -1,0 +1,105 @@
+{
+  "nav": {
+    "home": "Home",
+    "analysis": "Drawing Analysis",
+    "knowledge": "Knowledge Base",
+    "counseling": "Online Counseling",
+    "community": "Community",
+    "account": "Account",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout"
+  },
+  "home": {
+    "title": "Know You Better",
+    "subtitle": "Adolescent Psychological Counseling Platform",
+    "welcome": "Welcome to a supportive space for teen mental health",
+    "description": "Discover your inner self through AI-powered psychological analysis, connect with professional counselors, and join a caring community.",
+    "uploadDrawing": "Upload Drawing",
+    "uploadDescription": "Upload your House-Tree-Person drawing for AI psychological analysis",
+    "quickAccess": "Quick Access",
+    "bookConsultation": "Book Consultation",
+    "browseKnowledge": "Browse Knowledge Base",
+    "joinCommunity": "Join Community"
+  },
+  "analysis": {
+    "title": "Drawing Analysis",
+    "uploadTitle": "Upload Your House-Tree-Person Drawing",
+    "uploadDescription": "Upload a clear image of your House-Tree-Person drawing for AI psychological analysis",
+    "dragDrop": "Drag and drop your image here, or click to select",
+    "analyzing": "Analyzing your drawing...",
+    "results": "Analysis Results",
+    "downloadReport": "Download Report",
+    "personality": "Personality Insights",
+    "emotional": "Emotional State",
+    "recommendations": "Recommendations"
+  },
+  "knowledge": {
+    "title": "Knowledge Base",
+    "searchPlaceholder": "Search articles, videos, and courses...",
+    "categories": "Categories",
+    "growingPains": "Growing Pains",
+    "emotionalRegulation": "Emotional Regulation",
+    "parentingAdvice": "Parenting Advice",
+    "stressManagement": "Stress Management",
+    "relationships": "Interpersonal Relationships",
+    "faq": "Frequently Asked Questions"
+  },
+  "counseling": {
+    "title": "Online Counseling",
+    "instantChat": "Instant Chat",
+    "videoConsultation": "Video Consultation",
+    "bookAppointment": "Book Appointment",
+    "counselorProfiles": "Counselor Profiles",
+    "selectCounselor": "Select a Counselor",
+    "availability": "Availability",
+    "expertise": "Expertise"
+  },
+  "community": {
+    "title": "Community Forum",
+    "anonymousDiscussion": "Anonymous Discussion",
+    "shareExperience": "Share Your Experience",
+    "supportOthers": "Support Others",
+    "expertAdvice": "Expert Advice",
+    "newPost": "New Post",
+    "recentTopics": "Recent Topics"
+  },
+  "account": {
+    "title": "My Account",
+    "profile": "Profile",
+    "history": "History & Records",
+    "analysisHistory": "Analysis History",
+    "consultationHistory": "Consultation History",
+    "privacy": "Privacy Settings",
+    "security": "Security Settings",
+    "editProfile": "Edit Profile",
+    "changePassword": "Change Password"
+  },
+  "auth": {
+    "loginTitle": "Login to Your Account",
+    "registerTitle": "Create New Account",
+    "email": "Email Address",
+    "username": "Username",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "forgotPassword": "Forgot Password?",
+    "loginWithGoogle": "Login with Google",
+    "loginWithWechat": "Login with WeChat",
+    "alreadyHaveAccount": "Already have an account?",
+    "dontHaveAccount": "Don't have an account?"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  }
+}
