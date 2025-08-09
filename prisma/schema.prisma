@@ -38,6 +38,12 @@ model User {
   posts         Post[]
   comments      Comment[]
   counselorProfile CounselorProfile?
+  profile       UserProfile?
+  forumPosts    ForumPost[]
+  forumReplies  ForumReply[]
+  drawingAnalyses DrawingAnalysis[]
+  forumLikes    ForumLike[]
+  forumReplyLikes ForumReplyLike[]
   
   @@map("users")
 }
@@ -277,4 +283,142 @@ enum ArticleCategory {
   TEEN_DEVELOPMENT
   COPING_STRATEGIES
   CRISIS_SUPPORT
+}
+
+model UserProfile {
+  id            String   @id @default(cuid())
+  userId        String   @unique
+  
+  // Personal Information
+  bio           String?
+  dateOfBirth   DateTime?
+  phone         String?
+  address       String?
+  emergencyContact String?
+  
+  // Preferences
+  preferredLanguage String?
+  timezone      String?
+  isPrivate     Boolean  @default(false)
+  
+  // Timestamps
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  // Relations
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("user_profiles")
+}
+
+model ForumCategory {
+  id            String     @id @default(cuid())
+  name          String     @unique
+  description   String?
+  color         String?
+  
+  // Timestamps
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  
+  // Relations
+  posts         ForumPost[]
+  
+  @@map("forum_categories")
+}
+
+model ForumPost {
+  id            String        @id @default(cuid())
+  authorId      String
+  categoryId    String
+  title         String
+  content       String
+  isAnonymous   Boolean       @default(false)
+  isPinned      Boolean       @default(false)
+  isLocked      Boolean       @default(false)
+  
+  // Timestamps
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  
+  // Relations
+  author        User          @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  category      ForumCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  replies       ForumReply[]
+  likes         ForumLike[]
+  
+  @@map("forum_posts")
+}
+
+model ForumReply {
+  id            String     @id @default(cuid())
+  postId        String
+  authorId      String
+  content       String
+  isAnonymous   Boolean    @default(false)
+  
+  // Timestamps
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  
+  // Relations
+  post          ForumPost  @relation(fields: [postId], references: [id], onDelete: Cascade)
+  author        User       @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  likes         ForumReplyLike[]
+  
+  @@map("forum_replies")
+}
+
+model ForumLike {
+  id            String     @id @default(cuid())
+  postId        String
+  userId        String
+  
+  // Timestamps
+  createdAt     DateTime   @default(now())
+  
+  // Relations
+  post          ForumPost  @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user          User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@unique([postId, userId])
+  @@map("forum_likes")
+}
+
+model ForumReplyLike {
+  id            String     @id @default(cuid())
+  replyId       String
+  userId        String
+  
+  // Timestamps
+  createdAt     DateTime   @default(now())
+  
+  // Relations
+  reply         ForumReply @relation(fields: [replyId], references: [id], onDelete: Cascade)
+  user          User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@unique([replyId, userId])
+  @@map("forum_reply_likes")
+}
+
+model DrawingAnalysis {
+  id            String        @id @default(cuid())
+  userId        String
+  imageUrl      String
+  status        AnalysisStatus @default(PENDING)
+  
+  // AI Analysis Results
+  personalityInsights Json?
+  emotionalState      Json?
+  recommendations     Json?
+  riskLevel          RiskLevel?
+  
+  // Timestamps
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  
+  // Relations
+  user          User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("drawing_analyses")
 }
