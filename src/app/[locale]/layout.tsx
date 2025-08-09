@@ -1,6 +1,7 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import MainLayout from "@/components/layout/MainLayout";
+import AuthProvider from "@/components/auth/AuthProvider";
 
 export default async function LocaleLayout({
   children,
@@ -14,9 +15,11 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <MainLayout>
-        {children}
-      </MainLayout>
+      <AuthProvider>
+        <MainLayout>
+          {children}
+        </MainLayout>
+      </AuthProvider>
     </NextIntlClientProvider>
   );
 }
