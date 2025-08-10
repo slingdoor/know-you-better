@@ -8,7 +8,8 @@
     "account": "账户",
     "login": "登录",
     "register": "注册",
-    "logout": "退出"
+    "logout": "退出",
+    "myAnalysisHistory": "我的分析历史"
   },
   "home": {
     "title": "更懂你",
@@ -20,7 +21,29 @@
     "quickAccess": "快速访问",
     "bookConsultation": "预约咨询",
     "browseKnowledge": "浏览知识库",
-    "joinCommunity": "加入社区"
+    "joinCommunity": "加入社区",
+    "aiPoweredSupport": "AI驱动的心理健康支持",
+    "comprehensiveSupport": "全面的心理健康支持",
+    "comprehensiveSupportDesc": "我们的平台结合AI技术与人文专业知识，为青少年提供个性化、便捷的心理健康服务。",
+    "counselingDescription": "通过安全的视频通话或即时消息与专业咨询师联系，获得个性化支持。",
+    "knowledgeDescription": "访问包含文章、视频和青少年心理健康主题互动内容的综合图书馆。",
+    "communityDescription": "加入一个支持性社区，在安全、有监管的环境中分享经验并与同龄人建立联系。",
+    "privacySecurity": "隐私与安全",
+    "privacyDescription": "您的隐私是我们的首要任务。所有数据都经过加密，并受到行业领先的安全措施保护。",
+    "expertBacked": "专家支持",
+    "expertDescription": "所有内容和AI模型都由持证心理健康专业人士和研究人员开发和审查。",
+    "quickAccessDesc": "立即开始使用这些热门功能",
+    "uploadDrawingDesc": "上传您的房树人绘画，获得即时AI心理洞察。",
+    "browseKnowledgeDesc": "探索我们全面的心理健康资源和教育内容库。",
+    "joinCommunityDesc": "与同龄人联系，在我们安全、支持性的社区空间分享您的旅程。",
+    "readyToBegin": "准备开始您的旅程了吗？",
+    "joinThousands": "加入成千上万通过我们平台找到支持、理解和成长的青少年。",
+    "createFreeAccount": "创建免费账户",
+    "learnMore": "了解更多",
+    "getStarted": "开始使用",
+    "browseNow": "立即浏览",
+    "joinNow": "立即加入",
+    "myAnalysisHistory": "我的分析历史"
   },
   "analysis": {
     "title": "绘画分析",

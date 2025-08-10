@@ -97,7 +97,7 @@ export default function Header() {
                         className="block px-4 py-2 text-sm text-calm-700 hover:bg-calm-50 transition-colors"
                         onClick={() => setIsUserMenuOpen(false)}
                       >
-                        My Analysis History
+{t('nav.myAnalysisHistory')}
                       </Link>
                       <div className="border-t border-calm-200 mt-1 pt-1">
                         <button

@@ -20,9 +20,10 @@ interface FeatureCardProps {
   description: string;
   href: string;
   gradient: string;
+  learnMoreText: string;
 }
 
-function FeatureCard({ icon, title, description, href, gradient }: FeatureCardProps) {
+function FeatureCard({ icon, title, description, href, gradient, learnMoreText }: FeatureCardProps) {
   return (
     <Link 
       href={href}
@@ -38,7 +39,7 @@ function FeatureCard({ icon, title, description, href, gradient }: FeatureCardPr
         {description}
       </p>
       <div className="flex items-center text-primary-600 font-medium text-sm group-hover:gap-2 transition-all">
-        <span>Learn More</span>
+        <span>{learnMoreText}</span>
         <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
       </div>
     </Link>
@@ -58,7 +59,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <div className="text-center">
             <div className="inline-flex items-center px-4 py-2 bg-primary-100 rounded-full text-primary-700 text-sm font-medium mb-6 animate-fade-in">
               <Sparkles size={16} className="mr-2" />
-              <span>AI-Powered Mental Health Support</span>
+              <span>{t('home.aiPoweredSupport')}</span>
             </div>
             
             <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-calm-900 mb-6 animate-slide-up">
@@ -98,10 +99,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-display font-bold text-3xl sm:text-4xl text-calm-900 mb-4">
-              Comprehensive Mental Health Support
+              {t('home.comprehensiveSupport')}
             </h2>
             <p className="text-xl text-calm-600 max-w-3xl mx-auto">
-              Our platform combines AI technology with human expertise to provide personalized, accessible mental health care for adolescents.
+              {t('home.comprehensiveSupportDesc')}
             </p>
           </div>
 
@@ -112,46 +113,52 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               description={t('home.uploadDescription')}
               href={`/${locale}/analysis`}
               gradient="bg-gradient-to-br from-primary-500 to-primary-600"
+              learnMoreText={t('home.learnMore')}
             />
             
             <FeatureCard
               icon={<MessageCircle className="text-white" size={24} />}
               title={t('nav.counseling')}
-              description="Connect with professional counselors through secure video calls or instant messaging for personalized support."
+              description={t('home.counselingDescription')}
               href={`/${locale}/counseling`}
               gradient="bg-gradient-to-br from-secondary-500 to-secondary-600"
+              learnMoreText={t('home.learnMore')}
             />
             
             <FeatureCard
               icon={<BookOpen className="text-white" size={24} />}
               title={t('nav.knowledge')}
-              description="Access a comprehensive library of articles, videos, and interactive content about teen mental health topics."
+              description={t('home.knowledgeDescription')}
               href={`/${locale}/knowledge`}
               gradient="bg-gradient-to-br from-warm-500 to-warm-600"
+              learnMoreText={t('home.learnMore')}
             />
             
             <FeatureCard
               icon={<Users className="text-white" size={24} />}
               title={t('nav.community')}
-              description="Join a supportive community where you can share experiences and connect with peers in a safe, moderated environment."
+              description={t('home.communityDescription')}
               href={`/${locale}/community`}
               gradient="bg-gradient-to-br from-sage-500 to-sage-600"
+              learnMoreText={t('home.learnMore')}
             />
             
             <FeatureCard
               icon={<Shield className="text-white" size={24} />}
-              title="Privacy & Security"
-              description="Your privacy is our top priority. All data is encrypted and protected with industry-leading security measures."
+              title={t('home.privacySecurity')}
+              description={t('home.privacyDescription')}
               href={`/${locale}/privacy`}
               gradient="bg-gradient-to-br from-calm-600 to-calm-700"
+              learnMoreText={t('home.learnMore')}
             />
             
             <FeatureCard
               icon={<Award className="text-white" size={24} />}
-              title="Expert-Backed"
-              description="All content and AI models are developed and reviewed by licensed mental health professionals and researchers."
+              title={t('home.expertBacked')}
+              description={t('home.expertDescription')}
               href={`/${locale}/about`}
               gradient="bg-gradient-to-br from-purple-500 to-purple-600"
+              learnMoreText={t('home.learnMore')}
             />
           </div>
         </div>
@@ -165,7 +172,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               {t('home.quickAccess')}
             </h2>
             <p className="text-xl text-calm-600">
-              Get started immediately with these popular features
+              {t('home.quickAccessDesc')}
             </p>
           </div>
 
@@ -178,13 +185,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 {t('home.uploadDrawing')}
               </h3>
               <p className="text-calm-600 mb-6">
-                Upload your House-Tree-Person drawing and get instant AI psychological insights.
+                {t('home.uploadDrawingDesc')}
               </p>
               <Link
                 href={`/${locale}/analysis`}
                 className="inline-block bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-colors"
               >
-                Get Started
+                {t('home.getStarted')}
               </Link>
             </div>
 
@@ -196,13 +203,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 {t('home.browseKnowledge')}
               </h3>
               <p className="text-calm-600 mb-6">
-                Explore our comprehensive library of mental health resources and educational content.
+                {t('home.browseKnowledgeDesc')}
               </p>
               <Link
                 href={`/${locale}/knowledge`}
                 className="inline-block bg-secondary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-secondary-600 transition-colors"
               >
-                Browse Now
+                {t('home.browseNow')}
               </Link>
             </div>
 
@@ -214,13 +221,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 {t('home.joinCommunity')}
               </h3>
               <p className="text-calm-600 mb-6">
-                Connect with peers and share your journey in our safe, supportive community space.
+                {t('home.joinCommunityDesc')}
               </p>
               <Link
                 href={`/${locale}/community`}
                 className="inline-block bg-warm-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-warm-600 transition-colors"
               >
-                Join Now
+                {t('home.joinNow')}
               </Link>
             </div>
           </div>
@@ -232,23 +239,23 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Heart className="w-12 h-12 text-primary-200 mx-auto mb-6" />
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-white mb-6">
-            Ready to Begin Your Journey?
+            {t('home.readyToBegin')}
           </h2>
           <p className="text-xl text-primary-100 mb-8">
-            Join thousands of teens who have found support, understanding, and growth through our platform.
+            {t('home.joinThousands')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href={`/${locale}/auth/register`}
               className="bg-white text-primary-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary-50 transition-colors shadow-lg"
             >
-              Create Free Account
+              {t('home.createFreeAccount')}
             </Link>
             <Link
               href={`/${locale}/about`}
               className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-primary-600 transition-colors"
             >
-              Learn More
+              {t('home.learnMore')}
             </Link>
           </div>
         </div>

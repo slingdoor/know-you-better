@@ -8,7 +8,8 @@
     "account": "帳戶",
     "login": "登入",
     "register": "註冊",
-    "logout": "登出"
+    "logout": "登出",
+    "myAnalysisHistory": "我的分析歷史"
   },
   "home": {
     "title": "更懂你",
@@ -20,7 +21,29 @@
     "quickAccess": "快速存取",
     "bookConsultation": "預約諮詢",
     "browseKnowledge": "瀏覽知識庫",
-    "joinCommunity": "加入社群"
+    "joinCommunity": "加入社群",
+    "aiPoweredSupport": "AI驅動的心理健康支持",
+    "comprehensiveSupport": "全面的心理健康支持",
+    "comprehensiveSupportDesc": "我們的平台結合AI技術與人文專業知識，為青少年提供個性化、便捷的心理健康服務。",
+    "counselingDescription": "通過安全的視訊通話或即時訊息與專業諮商師聯繫，獲得個性化支持。",
+    "knowledgeDescription": "訪問包含文章、影片和青少年心理健康主題互動內容的綜合圖書館。",
+    "communityDescription": "加入一個支持性社群，在安全、有監管的環境中分享經驗並與同齡人建立聯繫。",
+    "privacySecurity": "隱私與安全",
+    "privacyDescription": "您的隱私是我們的首要任務。所有數據都經過加密，並受到行業領先的安全措施保護。",
+    "expertBacked": "專家支持",
+    "expertDescription": "所有內容和AI模型都由持證心理健康專業人士和研究人員開發和審查。",
+    "quickAccessDesc": "立即開始使用這些熱門功能",
+    "uploadDrawingDesc": "上傳您的房樹人繪畫，獲得即時AI心理洞察。",
+    "browseKnowledgeDesc": "探索我們全面的心理健康資源和教育內容庫。",
+    "joinCommunityDesc": "與同齡人聯繫，在我們安全、支持性的社群空間分享您的旅程。",
+    "readyToBegin": "準備開始您的旅程了嗎？",
+    "joinThousands": "加入成千上萬通過我們平台找到支持、理解和成長的青少年。",
+    "createFreeAccount": "建立免費帳戶",
+    "learnMore": "了解更多",
+    "getStarted": "開始使用",
+    "browseNow": "立即瀏覽",
+    "joinNow": "立即加入",
+    "myAnalysisHistory": "我的分析歷史"
   },
   "analysis": {
     "title": "繪畫分析",

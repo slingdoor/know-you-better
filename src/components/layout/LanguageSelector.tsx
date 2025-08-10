@@ -22,10 +22,6 @@ export default function LanguageSelector() {
   const handleLanguageChange = (langCode: string) => {
     setIsOpen(false);
     
-    console.log('Language change requested:', langCode);
-    console.log('Current pathname:', window.location.pathname);
-    console.log('Current locale from useLocale:', locale);
-    
     // Simple approach: always construct the URL with the new locale
     const currentPath = window.location.pathname;
     const currentLocales = ['en', 'zh-CN', 'zh-TW'];
@@ -41,7 +37,6 @@ export default function LanguageSelector() {
     
     // Construct new path with the selected locale
     const newPath = `/${langCode}${cleanPath === '/' ? '' : cleanPath}`;
-    console.log('Navigating to:', newPath);
     
     // Force page reload to ensure middleware processes the new locale
     window.location.href = newPath;

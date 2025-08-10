@@ -8,7 +8,8 @@
     "account": "Account",
     "login": "Login",
     "register": "Register",
-    "logout": "Logout"
+    "logout": "Logout",
+    "myAnalysisHistory": "My Analysis History"
   },
   "home": {
     "title": "Know You Better",
@@ -20,7 +21,29 @@
     "quickAccess": "Quick Access",
     "bookConsultation": "Book Consultation",
     "browseKnowledge": "Browse Knowledge Base",
-    "joinCommunity": "Join Community"
+    "joinCommunity": "Join Community",
+    "aiPoweredSupport": "AI-Powered Mental Health Support",
+    "comprehensiveSupport": "Comprehensive Mental Health Support",
+    "comprehensiveSupportDesc": "Our platform combines AI technology with human expertise to provide personalized, accessible mental health care for adolescents.",
+    "counselingDescription": "Connect with professional counselors through secure video calls or instant messaging for personalized support.",
+    "knowledgeDescription": "Access a comprehensive library of articles, videos, and interactive content about teen mental health topics.",
+    "communityDescription": "Join a supportive community where you can share experiences and connect with peers in a safe, moderated environment.",
+    "privacySecurity": "Privacy & Security",
+    "privacyDescription": "Your privacy is our top priority. All data is encrypted and protected with industry-leading security measures.",
+    "expertBacked": "Expert-Backed",
+    "expertDescription": "All content and AI models are developed and reviewed by licensed mental health professionals and researchers.",
+    "quickAccessDesc": "Get started immediately with these popular features",
+    "uploadDrawingDesc": "Upload your House-Tree-Person drawing and get instant AI psychological insights.",
+    "browseKnowledgeDesc": "Explore our comprehensive library of mental health resources and educational content.",
+    "joinCommunityDesc": "Connect with peers and share your journey in our safe, supportive community space.",
+    "readyToBegin": "Ready to Begin Your Journey?",
+    "joinThousands": "Join thousands of teens who have found support, understanding, and growth through our platform.",
+    "createFreeAccount": "Create Free Account",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "browseNow": "Browse Now",
+    "joinNow": "Join Now",
+    "myAnalysisHistory": "My Analysis History"
   },
   "analysis": {
     "title": "Drawing Analysis",
