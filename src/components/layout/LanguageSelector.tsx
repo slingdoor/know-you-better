@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter, usePathname } from '../../../i18n/routing';
+import { useRouter, usePathname } from '../../i18n/routing';
 import { useLocale } from 'next-intl';
 import { Globe, ChevronDown } from 'lucide-react';
 
