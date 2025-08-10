@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useRouter, usePathname } from '../../i18n/routing';
 import { useLocale } from 'next-intl';
 import { Globe, ChevronDown } from 'lucide-react';
@@ -17,11 +17,27 @@ export default function LanguageSelector() {
   const pathname = usePathname();
   const locale = useLocale();
 
-  const currentLanguage = languages.find(lang => lang.code === locale) || languages[0];
+  // Manual locale detection from URL as fallback
+  const [actualLocale, setActualLocale] = useState('en');
+  
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname;
+      const pathLocales = ['zh-CN', 'zh-TW', 'en'];
+      const detectedLocale = pathLocales.find(loc => path.startsWith(`/${loc}`)) || 'en';
+      setActualLocale(detectedLocale);
+    }
+  }, []);
+
+  // Use manual detection if useLocale() is not working
+  const workingLocale = actualLocale !== 'en' ? actualLocale : locale;
+  const currentLanguage = languages.find(lang => lang.code === workingLocale) || languages[0];
   
   // Debug locale detection
   console.log('🔍 LanguageSelector Debug:', {
-    detectedLocale: locale,
+    useLocaleResult: locale,
+    manualDetection: actualLocale,
+    workingLocale: workingLocale,
     currentUrl: typeof window !== 'undefined' ? window.location.pathname : 'SSR',
     pathnameFromHook: pathname,
     selectedLanguage: currentLanguage
