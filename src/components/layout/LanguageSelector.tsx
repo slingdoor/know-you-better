@@ -18,6 +18,14 @@ export default function LanguageSelector() {
   const locale = useLocale();
 
   const currentLanguage = languages.find(lang => lang.code === locale) || languages[0];
+  
+  // Debug locale detection
+  console.log('🔍 LanguageSelector Debug:', {
+    detectedLocale: locale,
+    currentUrl: typeof window !== 'undefined' ? window.location.pathname : 'SSR',
+    pathnameFromHook: pathname,
+    selectedLanguage: currentLanguage
+  });
 
   const handleLanguageChange = (langCode: string) => {
     setIsOpen(false);

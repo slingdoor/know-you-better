@@ -1,25 +1,9 @@
 import createMiddleware from 'next-intl/middleware';
+import { routing } from './src/i18n/routing';
 
-export default createMiddleware({
-  // A list of all locales that are supported
-  locales: ['en', 'zh-CN', 'zh-TW'],
-
-  // Used when no locale matches
-  defaultLocale: 'en',
-
-  // Always show locale in URL
-  localePrefix: 'always',
-  
-  // Explicitly handle locale detection
-  localeDetection: true
-});
+export default createMiddleware(routing);
 
 export const config = {
-  // Match all paths except API routes, static files, etc.
-  matcher: [
-    // Skip all internal paths (_next)
-    // Skip all API routes
-    // Skip all files with extensions (images, favicon, etc.)
-    '/((?!api|_next/static|_next/image|favicon.ico).*)'
-  ]
+  // Match only internationalized pathnames
+  matcher: ['/', '/(zh-CN|zh-TW|en)/:path*']
 };
