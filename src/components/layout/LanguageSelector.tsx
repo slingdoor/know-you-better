@@ -17,26 +17,15 @@ export default function LanguageSelector() {
   const pathname = usePathname();
   const locale = useLocale();
 
-  // Debug logging
-  console.log('LanguageSelector - Current locale:', locale);
-  console.log('LanguageSelector - Current pathname:', pathname);
-  console.log('LanguageSelector - Window location:', typeof window !== 'undefined' ? window.location.pathname : 'SSR');
-
   const currentLanguage = languages.find(lang => lang.code === locale) || languages[0];
-  console.log('LanguageSelector - Current language object:', currentLanguage);
 
   const handleLanguageChange = (langCode: string) => {
     setIsOpen(false);
     
-    console.log('Language change requested:', langCode);
-    console.log('Current pathname from hook:', pathname);
-    
     try {
       // Use next-intl router for proper locale switching
       router.replace(pathname, { locale: langCode });
-      console.log('Router replace called successfully');
     } catch (error) {
-      console.error('Router replace failed:', error);
       // Fallback to window.location
       const currentPath = window.location.pathname;
       const currentLocales = ['en', 'zh-CN', 'zh-TW'];
@@ -50,7 +39,6 @@ export default function LanguageSelector() {
       }
       
       const newPath = `/${langCode}${cleanPath === '/' ? '' : cleanPath}`;
-      console.log('Fallback navigation to:', newPath);
       window.location.href = newPath;
     }
   };

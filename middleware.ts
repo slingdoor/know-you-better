@@ -8,10 +8,18 @@ export default createMiddleware({
   defaultLocale: 'en',
 
   // Always show locale in URL
-  localePrefix: 'always'
+  localePrefix: 'always',
+  
+  // Explicitly handle locale detection
+  localeDetection: true
 });
 
 export const config = {
-  // Match only internationalized pathnames
-  matcher: ['/', '/(zh-CN|zh-TW|en)/:path*']
+  // Match all paths except API routes, static files, etc.
+  matcher: [
+    // Skip all internal paths (_next)
+    // Skip all API routes
+    // Skip all files with extensions (images, favicon, etc.)
+    '/((?!api|_next/static|_next/image|favicon.ico).*)'
+  ]
 };
