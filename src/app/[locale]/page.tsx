@@ -48,7 +48,7 @@ function FeatureCard({ icon, title, description, href, gradient, learnMoreText }
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations();
+  const t = await getTranslations({ locale });
 
   // Debug server-side translations
   console.log('📖 HomePage Debug:', {
