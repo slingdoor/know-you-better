@@ -10,7 +10,7 @@ export const routing = defineRouting({
     '/knowledge': '/knowledge',
     '/counseling': '/counseling',
     '/community': '/community',
-    '/account': '/account'
+    '/profile': '/profile'
   }
 });
  

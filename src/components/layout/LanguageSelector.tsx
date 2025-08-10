@@ -21,7 +21,24 @@ export default function LanguageSelector() {
 
   const handleLanguageChange = (langCode: string) => {
     setIsOpen(false);
-    router.replace(pathname, { locale: langCode });
+    
+    // Get current path without locale
+    const segments = window.location.pathname.split('/').filter(Boolean);
+    const currentLocales = ['en', 'zh-CN', 'zh-TW'];
+    const hasLocale = segments[0] && currentLocales.includes(segments[0]);
+    
+    let newPath;
+    if (hasLocale) {
+      // Replace current locale
+      segments[0] = langCode;
+      newPath = `/${segments.join('/')}`;
+    } else {
+      // Add locale prefix
+      newPath = `/${langCode}${window.location.pathname}`;
+    }
+    
+    // Use window.location to ensure the navigation works
+    window.location.href = newPath;
   };
 
   return (
