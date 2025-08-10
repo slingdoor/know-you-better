@@ -17,29 +17,42 @@ export default function LanguageSelector() {
   const pathname = usePathname();
   const locale = useLocale();
 
+  // Debug logging
+  console.log('LanguageSelector - Current locale:', locale);
+  console.log('LanguageSelector - Current pathname:', pathname);
+  console.log('LanguageSelector - Window location:', typeof window !== 'undefined' ? window.location.pathname : 'SSR');
+
   const currentLanguage = languages.find(lang => lang.code === locale) || languages[0];
+  console.log('LanguageSelector - Current language object:', currentLanguage);
 
   const handleLanguageChange = (langCode: string) => {
     setIsOpen(false);
     
-    // Simple approach: always construct the URL with the new locale
-    const currentPath = window.location.pathname;
-    const currentLocales = ['en', 'zh-CN', 'zh-TW'];
+    console.log('Language change requested:', langCode);
+    console.log('Current pathname from hook:', pathname);
     
-    // Remove any existing locale from the path
-    let cleanPath = currentPath;
-    for (const loc of currentLocales) {
-      if (currentPath.startsWith(`/${loc}`)) {
-        cleanPath = currentPath.replace(`/${loc}`, '') || '/';
-        break;
+    try {
+      // Use next-intl router for proper locale switching
+      router.replace(pathname, { locale: langCode });
+      console.log('Router replace called successfully');
+    } catch (error) {
+      console.error('Router replace failed:', error);
+      // Fallback to window.location
+      const currentPath = window.location.pathname;
+      const currentLocales = ['en', 'zh-CN', 'zh-TW'];
+      
+      let cleanPath = currentPath;
+      for (const loc of currentLocales) {
+        if (currentPath.startsWith(`/${loc}`)) {
+          cleanPath = currentPath.replace(`/${loc}`, '') || '/';
+          break;
+        }
       }
+      
+      const newPath = `/${langCode}${cleanPath === '/' ? '' : cleanPath}`;
+      console.log('Fallback navigation to:', newPath);
+      window.location.href = newPath;
     }
-    
-    // Construct new path with the selected locale
-    const newPath = `/${langCode}${cleanPath === '/' ? '' : cleanPath}`;
-    
-    // Force page reload to ensure middleware processes the new locale
-    window.location.href = newPath;
   };
 
   return (

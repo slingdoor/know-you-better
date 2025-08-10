@@ -4,9 +4,16 @@ import {routing} from './src/i18n/routing';
 export default createMiddleware(routing);
 
 export const config = {
-  // Match all pathnames except for
-  // - API routes (/api/...)
-  // - Next.js internals (/_next/...)
-  // - Static files (containing a dot)
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)', '/']
+  matcher: [
+    // Enable a redirect to a matching locale at the root
+    '/',
+    
+    // Set a cookie to remember the previous locale for
+    // all requests that have a locale prefix
+    '/(zh-CN|zh-TW|en)/:path*',
+    
+    // Enable redirects that add missing locales
+    // (e.g. `/pathnames` -> `/en/pathnames`)
+    '/((?!_next|_vercel|.*\\..*).*)'
+  ]
 };
