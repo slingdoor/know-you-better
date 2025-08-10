@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter, usePathname } from '../../../i18n/routing';
 import { useLocale } from 'next-intl';
 import { Globe, ChevronDown } from 'lucide-react';
 
@@ -21,8 +21,7 @@ export default function LanguageSelector() {
 
   const handleLanguageChange = (langCode: string) => {
     setIsOpen(false);
-    const newPathname = pathname.replace(`/${locale}`, `/${langCode}`);
-    router.push(newPathname);
+    router.replace(pathname, { locale: langCode });
   };
 
   return (
