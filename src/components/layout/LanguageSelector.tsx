@@ -22,22 +22,28 @@ export default function LanguageSelector() {
   const handleLanguageChange = (langCode: string) => {
     setIsOpen(false);
     
-    // Get current path without locale
-    const segments = window.location.pathname.split('/').filter(Boolean);
-    const currentLocales = ['en', 'zh-CN', 'zh-TW'];
-    const hasLocale = segments[0] && currentLocales.includes(segments[0]);
+    console.log('Language change requested:', langCode);
+    console.log('Current pathname:', window.location.pathname);
+    console.log('Current locale from useLocale:', locale);
     
-    let newPath;
-    if (hasLocale) {
-      // Replace current locale
-      segments[0] = langCode;
-      newPath = `/${segments.join('/')}`;
-    } else {
-      // Add locale prefix
-      newPath = `/${langCode}${window.location.pathname}`;
+    // Simple approach: always construct the URL with the new locale
+    const currentPath = window.location.pathname;
+    const currentLocales = ['en', 'zh-CN', 'zh-TW'];
+    
+    // Remove any existing locale from the path
+    let cleanPath = currentPath;
+    for (const loc of currentLocales) {
+      if (currentPath.startsWith(`/${loc}`)) {
+        cleanPath = currentPath.replace(`/${loc}`, '') || '/';
+        break;
+      }
     }
     
-    // Use window.location to ensure the navigation works
+    // Construct new path with the selected locale
+    const newPath = `/${langCode}${cleanPath === '/' ? '' : cleanPath}`;
+    console.log('Navigating to:', newPath);
+    
+    // Force page reload to ensure middleware processes the new locale
     window.location.href = newPath;
   };
 
