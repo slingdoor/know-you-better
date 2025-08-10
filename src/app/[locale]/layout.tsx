@@ -11,13 +11,14 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const messages = await getMessages();
+  const messages = await getMessages({ locale });
 
   // Debug translation loading
   console.log('🌐 Layout Debug:', {
     locale,
     messagesKeys: messages ? Object.keys(messages).slice(0, 5) : 'No messages',
-    sampleTranslation: messages?.nav?.home || 'No nav.home translation'
+    sampleTranslation: messages?.nav?.home || 'No nav.home translation',
+    sampleHomeTitle: messages?.home?.title || 'No home.title translation'
   });
 
   return (
