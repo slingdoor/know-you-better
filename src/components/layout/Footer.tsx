@@ -75,12 +75,14 @@ export default function Footer() {
             <div className="space-y-2">
               <Link
                 href={`/${locale}/help`}
+                prefetch={false}
                 className="block text-calm-300 hover:text-white transition-colors text-sm"
               >
                 Help Center
               </Link>
               <Link
                 href={`/${locale}/contact`}
+                prefetch={false}
                 className="block text-calm-300 hover:text-white transition-colors text-sm"
               >
                 Contact Us
@@ -93,6 +95,7 @@ export default function Footer() {
               </Link>
               <Link
                 href={`/${locale}/terms`}
+                prefetch={false}
                 className="block text-calm-300 hover:text-white transition-colors text-sm"
               >
                 Terms of Service
@@ -132,12 +135,14 @@ export default function Footer() {
           <div className="mt-4 md:mt-0 flex space-x-6">
             <Link
               href={`/${locale}/accessibility`}
+              prefetch={false}
               className="text-calm-400 hover:text-white text-sm transition-colors"
             >
               Accessibility
             </Link>
             <Link
               href={`/${locale}/cookies`}
+              prefetch={false}
               className="text-calm-400 hover:text-white text-sm transition-colors"
             >
               Cookie Policy
