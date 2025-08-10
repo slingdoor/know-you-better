@@ -14,6 +14,14 @@ export default function Header() {
   const t = useTranslations('nav');
   const locale = useLocale();
 
+  // Debug translations in Header
+  console.log('🏠 Header Debug:', {
+    locale,
+    homeTranslation: t('home'),
+    analysisTranslation: t('analysis'),
+    communityTranslation: t('community')
+  });
+
   const navigation = [
     { name: t('home'), href: `/${locale}` },
     { name: t('analysis'), href: `/${locale}/analysis` },

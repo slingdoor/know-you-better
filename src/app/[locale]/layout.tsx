@@ -13,6 +13,13 @@ export default async function LocaleLayout({
   const { locale } = await params;
   const messages = await getMessages();
 
+  // Debug translation loading
+  console.log('🌐 Layout Debug:', {
+    locale,
+    messagesKeys: messages ? Object.keys(messages).slice(0, 5) : 'No messages',
+    sampleTranslation: messages?.nav?.home || 'No nav.home translation'
+  });
+
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
       <AuthProvider>

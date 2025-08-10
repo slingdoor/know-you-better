@@ -50,6 +50,14 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const t = await getTranslations();
 
+  // Debug server-side translations
+  console.log('📖 HomePage Debug:', {
+    locale,
+    titleTranslation: t('home.title'),
+    subtitleTranslation: t('home.subtitle'),
+    navHomeTranslation: t('nav.home')
+  });
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
