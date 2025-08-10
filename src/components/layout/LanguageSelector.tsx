@@ -22,25 +22,29 @@ export default function LanguageSelector() {
   const handleLanguageChange = (langCode: string) => {
     setIsOpen(false);
     
-    try {
-      // Use next-intl router for proper locale switching
-      router.replace(pathname, { locale: langCode });
-    } catch (error) {
-      // Fallback to window.location
-      const currentPath = window.location.pathname;
-      const currentLocales = ['en', 'zh-CN', 'zh-TW'];
-      
-      let cleanPath = currentPath;
-      for (const loc of currentLocales) {
-        if (currentPath.startsWith(`/${loc}`)) {
-          cleanPath = currentPath.replace(`/${loc}`, '') || '/';
-          break;
-        }
+    // Simplified and more reliable approach
+    const currentPath = window.location.pathname;
+    const currentLocales = ['en', 'zh-CN', 'zh-TW'];
+    
+    // Remove any existing locale from the beginning of the path
+    let cleanPath = currentPath;
+    for (const loc of currentLocales) {
+      if (currentPath === `/${loc}` || currentPath.startsWith(`/${loc}/`)) {
+        cleanPath = currentPath.replace(`/${loc}`, '') || '/';
+        break;
       }
-      
-      const newPath = `/${langCode}${cleanPath === '/' ? '' : cleanPath}`;
-      window.location.href = newPath;
     }
+    
+    // Ensure cleanPath starts with / if it's not just /
+    if (cleanPath !== '/' && !cleanPath.startsWith('/')) {
+      cleanPath = '/' + cleanPath;
+    }
+    
+    // Construct the new path
+    const newPath = `/${langCode}${cleanPath === '/' ? '' : cleanPath}`;
+    
+    console.log('Language switch:', { currentPath, cleanPath, newPath, langCode });
+    window.location.href = newPath;
   };
 
   return (
